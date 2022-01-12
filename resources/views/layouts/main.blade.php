@@ -746,17 +746,17 @@
     <script type="text/javascript" src="<?php echo asset('storage/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
 
-    <script type="text/javascript" src="<?php echo asset('js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('storage/js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/jquery.cookie/jquery.cookie.js') ?>">
     </script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/chart.js/Chart.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('js/charts-custom.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo asset('storage/js/charts-custom.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/jquery-validation/jquery.validate.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')?>"></script>
     @if( Config::get('app.locale') == 'ar' || $general_setting->is_rtl)
-      <script type="text/javascript" src="<?php echo asset('js/front_rtl.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('storage/js/front_rtl.js') ?>"></script>
     @else
-      <script type="text/javascript" src="<?php echo asset('js/front.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('storage/js/front.js') ?>"></script>
     @endif
 
     @if(Route::current()->getName() != '/')
