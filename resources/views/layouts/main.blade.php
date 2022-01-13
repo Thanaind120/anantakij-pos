@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" href="{{url('public/logo', $general_setting->site_logo)}}" />
+    <link rel="icon" type="image/png" href="{{ asset('storage/logo/'. $general_setting->site_logo) }}" />
     <title>{{$general_setting->site_title}}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -219,7 +219,7 @@
               <a id="toggle-btn" href="#" class="menu-btn"><i class="fa fa-bars"> </i></a>
               <span class="brand-big">
                 @if($general_setting->site_logo)
-                <a href="{{url('/')}}"><img src="{{url('public/logo', $general_setting->site_logo)}}" width="115"></a>
+                <a href="{{url('/')}}"><img src="{{ asset('storage/logo/'. $general_setting->site_logo)}}" width="115"></a>
                 @else
                   <a href="{{url('/')}}"><h1 class="d-inline">{{$general_setting->site_title}}</h1></a>
                 @endif
@@ -772,7 +772,7 @@
     <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/jquery.dataTables.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/dataTables.bootstrap4.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/dataTables.buttons.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/buttons.bootstrap4.min.js') ?>">"></script>
+    <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/buttons.bootstrap4.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/buttons.colVis.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/buttons.html5.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('storage/vendor/datatable/buttons.print.min.js') ?>"></script>
