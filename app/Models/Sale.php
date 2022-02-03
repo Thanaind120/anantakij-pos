@@ -12,21 +12,21 @@ class Sale extends Model
 
     public function biller()
     {
-    	return $this->belongsTo('App\Biller');
+    	return $this->belongsTo('App\Models\Biller');
     }
 
     public function customer()
     {
-    	return $this->belongsTo('App\Customer');
+    	return $this->belongsTo('App\Models\Customer');
     }
 
     public function warehouse()
     {
-    	return $this->belongsTo('App\Warehouse');
+    	return $this->belongsTo('App\Models\Warehouse');
     }
 
     public function user()
     {
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\Models\User');
     }
 }

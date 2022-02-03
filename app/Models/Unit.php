@@ -13,7 +13,7 @@ class Unit extends Model
 
     public function product()
     {
-    	return $this->hasMany('App/Models/Product');
+    	return $this->hasMany('App\Models\Product');
     	
     }
 }

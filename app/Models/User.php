@@ -25,6 +25,6 @@ class User extends Authenticatable
     }
 
     public function holiday() {
-        return $this->hasMany('App\Holiday');
+        return $this->hasMany('App\Models\Holiday');
     }
 }

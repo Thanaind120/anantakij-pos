@@ -12,11 +12,11 @@ class Delivery extends Model
 
     public function sale()
     {
-    	return $this->belongsTo("App\Sale");
+    	return $this->belongsTo("App\Models\Sale");
     }
 
     public function user()
     {
-    	return $this->belongsTo("App\User");
+    	return $this->belongsTo("App\Models\User");
     }
 }

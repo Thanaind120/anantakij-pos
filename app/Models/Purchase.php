@@ -1,6 +1,6 @@
 <?php
 
-namespaceApp\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,11 +13,11 @@ class Purchase extends Model
 
     public function supplier()
     {
-    	return $this->belongsTo('App\Supplier');
+    	return $this->belongsTo('App\Models\Supplier');
     }
 
     public function warehouse()
     {
-    	return $this->belongsTo('App\Warehouse');
+    	return $this->belongsTo('App\Models\Warehouse');
     }
 }
