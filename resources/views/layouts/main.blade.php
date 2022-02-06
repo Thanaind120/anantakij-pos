@@ -292,6 +292,228 @@
                 </li>
               @endif
 
+              <!-- Report -->
+              <?php
+                $profit_loss_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'profit-loss'],
+                        ['role_id', $role->id] ])->first();
+                $best_seller_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'best-seller'],
+                        ['role_id', $role->id] ])->first();
+                $warehouse_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'warehouse-report'],
+                        ['role_id', $role->id] ])->first();
+                $warehouse_stock_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'warehouse-stock-report'],
+                        ['role_id', $role->id] ])->first();
+                $product_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'product-report'],
+                        ['role_id', $role->id] ])->first();
+                $daily_sale_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'daily-sale'],
+                        ['role_id', $role->id] ])->first();
+                $monthly_sale_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'monthly-sale'],
+                        ['role_id', $role->id]])->first();
+                $daily_purchase_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'daily-purchase'],
+                        ['role_id', $role->id] ])->first();
+                $monthly_purchase_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'monthly-purchase'],
+                        ['role_id', $role->id] ])->first();
+                $purchase_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'purchase-report'],
+                        ['role_id', $role->id] ])->first();
+                $sale_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'sale-report'],
+                        ['role_id', $role->id] ])->first();
+                $payment_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'payment-report'],
+                        ['role_id', $role->id] ])->first();
+                $product_qty_alert_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'product-qty-alert'],
+                        ['role_id', $role->id] ])->first();
+                $user_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'user-report'],
+                        ['role_id', $role->id] ])->first();
+
+                $customer_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'customer-report'],
+                        ['role_id', $role->id] ])->first();
+                $supplier_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'supplier-report'],
+                        ['role_id', $role->id] ])->first();
+                $due_report_active = DB::table('permissions')
+                      ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                      ->where([
+                        ['permissions.name', 'due-report'],
+                        ['role_id', $role->id] ])->first();
+              ?>
+
+            @if($profit_loss_active || $best_seller_active || $warehouse_report_active || $warehouse_stock_report_active || $product_report_active || $daily_sale_active || $monthly_sale_active || $daily_purchase_active || $monthly_purchase_active || $purchase_report_active || $sale_report_active || $payment_report_active || $product_qty_alert_active || $user_report_active || $customer_report_active || $supplier_report_active || $due_report_active)
+              <li><a href="#report" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document-remove"></i><span>{{trans('file.Reports')}}</span></a>
+                <ul id="report" class="collapse list-unstyled ">
+                  @if($profit_loss_active)
+                  <li id="profit-loss-report-menu">
+                    {!! Form::open(['route' => 'report.profitLoss', 'method' => 'post', 'id' => 'profitLoss-report-form']) !!}
+                    <input type="hidden" name="start_date" value="{{date('Y-m').'-'.'01'}}" />
+                    <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
+                    <a id="profitLoss-link" href="">{{trans('file.Summary Report')}}</a>
+                    {!! Form::close() !!}
+                  </li>
+                  @endif
+                  @if($best_seller_active)
+                  <li id="best-seller-report-menu">
+                    <a href="{{url('report/best_seller')}}">{{trans('file.Best Seller')}}</a>
+                  </li>
+                  @endif
+                  @if($product_report_active)
+                  <li id="product-report-menu">
+                    {!! Form::open(['route' => 'report.product', 'method' => 'get', 'id' => 'product-report-form']) !!}
+                    <input type="hidden" name="start_date" value="{{date('Y-m').'-'.'01'}}" />
+                    <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
+                    <input type="hidden" name="warehouse_id" value="0" />
+                    <a id="report-link" href="">{{trans('file.Product Report')}}</a>
+                    {!! Form::close() !!}
+                  </li>
+                  @endif
+                  @if($daily_sale_active)
+                  <li id="daily-sale-report-menu">
+                    <a href="{{url('report/daily_sale/'.date('Y').'/'.date('m'))}}">{{trans('file.Daily Sale')}}</a>
+                  </li>
+                  @endif
+                  @if($monthly_sale_active)
+                  <li id="monthly-sale-report-menu">
+                    <a href="{{url('report/monthly_sale/'.date('Y'))}}">{{trans('file.Monthly Sale')}}</a>
+                  </li>
+                  @endif
+                  @if($daily_purchase_active)
+                  <li id="daily-purchase-report-menu">
+                    <a href="{{url('report/daily_purchase/'.date('Y').'/'.date('m'))}}">{{trans('file.Daily Purchase')}}</a>
+                  </li>
+                  @endif
+                  @if($monthly_purchase_active)
+                  <li id="monthly-purchase-report-menu">
+                    <a href="{{url('report/monthly_purchase/'.date('Y'))}}">{{trans('file.Monthly Purchase')}}</a>
+                  </li>
+                  @endif
+                 @if($sale_report_active)
+                  <li id="sale-report-menu">
+                    {!! Form::open(['route' => 'report.sale', 'method' => 'post', 'id' => 'sale-report-form']) !!}
+                    <input type="hidden" name="start_date" value="{{date('Y-m').'-'.'01'}}" />
+                    <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
+                    <input type="hidden" name="warehouse_id" value="0" />
+                    <a id="sale-report-link" href="">{{trans('file.Sale Report')}}</a>
+                    {!! Form::close() !!}
+                  </li>
+                  @endif
+
+                  <!-- need to edit -->
+                  @if($sale_report_active) 
+                  <li id="requisition-report-menu">
+                    {!! Form::open(['route' => 'report.requisition', 'method' => 'post', 'id' => 'requisition-report-form']) !!}
+                    <input type="hidden" name="start_date" value="{{date('Y-m').'-'.'01'}}" />
+                    <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
+                    <input type="hidden" name="warehouse_id" value="0" />
+                    <a id="requisition-report-link" href="">{{trans('file.Requisition Report')}}</a>
+                    {!! Form::close() !!}
+                  </li>
+                  @endif
+
+                  @if($payment_report_active)
+                  <li id="payment-report-menu">
+                    {!! Form::open(['route' => 'report.paymentByDate', 'method' => 'post', 'id' => 'payment-report-form']) !!}
+                    <input type="hidden" name="start_date" value="{{date('Y-m').'-'.'01'}}" />
+                    <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
+                    <a id="payment-report-link" href="">{{trans('file.Payment Report')}}</a>
+                    {!! Form::close() !!}
+                  </li>
+                  @endif
+                  @if($purchase_report_active)
+                  <li id="purchase-report-menu">
+                    {!! Form::open(['route' => 'report.purchase', 'method' => 'post', 'id' => 'purchase-report-form']) !!}
+                    <input type="hidden" name="start_date" value="{{date('Y-m').'-'.'01'}}" />
+                    <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
+                    <input type="hidden" name="warehouse_id" value="0" />
+                    <a id="purchase-report-link" href="">{{trans('file.Purchase Report')}}</a>
+                    {!! Form::close() !!}
+                  </li>
+                  @endif
+                  @if($warehouse_report_active)
+                  <li id="warehouse-report-menu">
+                    <a id="warehouse-report-link" href="">{{trans('file.Warehouse Report')}}</a>
+                  </li>
+                  @endif
+                  @if($warehouse_stock_report_active)
+                  <li id="warehouse-stock-report-menu">
+                    <a href="{{route('report.warehouseStock')}}">{{trans('file.Warehouse Stock Chart')}}</a>
+                  </li>
+                  @endif
+                  @if($product_qty_alert_active)
+                  <li id="qtyAlert-report-menu">
+                    <a href="{{route('report.qtyAlert')}}">{{trans('file.Product Quantity Alert')}}</a>
+                  </li>
+                  @endif
+                  @if($user_report_active)
+                  <li id="user-report-menu">
+                    <a id="user-report-link" href="">{{trans('file.User Report')}}</a>
+                  </li>
+                  @endif
+                  @if($customer_report_active)
+                  <li id="customer-report-menu">
+                    <a id="customer-report-link" href="">{{trans('file.Customer Report')}}</a>
+                  </li>
+                  @endif
+                  @if($supplier_report_active)
+                  <li id="supplier-report-menu">
+                    <a id="supplier-report-link" href="">{{trans('file.Supplier Report')}}</a>
+                  </li>
+                  @endif
+                  @if($due_report_active)
+                  <li id="due-report-menu">
+                    {!! Form::open(['route' => 'report.dueByDate', 'method' => 'post', 'id' => 'due-report-form']) !!}
+                    <input type="hidden" name="start_date" value="{{date('Y-m').'-'.'01'}}" />
+                    <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
+                    <a id="due-report-link" href="">{{trans('file.Due Report')}}</a>
+                    {!! Form::close() !!}
+                  </li>
+                  @endif
+                </ul>
+              </li>
+              @endif
+
                 <!-- Setting -->
                 <li><a href="#setting" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-gear"></i><span>{{trans('file.settings')}}</span></a>
                   <ul id="setting" class="collapse list-unstyled ">
@@ -517,44 +739,8 @@
                             <a href="{{ url('language_switch/en') }}" class="btn btn-link"> English</a>
                           </li>
                           <li>
-                            <a href="{{ url('language_switch/es') }}" class="btn btn-link"> Español</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/ar') }}" class="btn btn-link"> عربى</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/pt_BR') }}" class="btn btn-link"> Portuguese</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/fr') }}" class="btn btn-link"> Français</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/de') }}" class="btn btn-link"> Deutsche</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/id') }}" class="btn btn-link"> Malay</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/hi') }}" class="btn btn-link"> हिंदी</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/vi') }}" class="btn btn-link"> Tiếng Việt</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/ru') }}" class="btn btn-link"> русский</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/bg') }}" class="btn btn-link"> български</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/tr') }}" class="btn btn-link"> Türk</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/it') }}" class="btn btn-link"> Italiano</a>
-                          </li>
-                          <li>
-                            <a href="{{ url('language_switch/nl') }}" class="btn btn-link"> Nederlands</a>
-                          </li>
+                            <a href="{{ url('language_switch/th') }}" class="btn btn-link"> Thai</a>
+                          </li>                         
                           <li>
                             <a href="{{ url('language_switch/lao') }}" class="btn btn-link"> Lao</a>
                           </li>
@@ -1099,6 +1285,11 @@
       $("a#sale-report-link").click(function(e){
         e.preventDefault();
         $("#sale-report-form").submit();
+      });
+
+      $("a#requisition-report-link").click(function(e){
+        e.preventDefault();
+        $("#requisition-report-form").submit();
       });
 
       $("a#payment-report-link").click(function(e){

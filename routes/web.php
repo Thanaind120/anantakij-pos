@@ -203,6 +203,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::post('report/product_report_data', 'ReportController@productReportData');
 	Route::post('report/purchase', 'ReportController@purchaseReport')->name('report.purchase');
 	Route::post('report/sale_report', 'ReportController@saleReport')->name('report.sale');
+	Route::post('report/requisition_report', 'ReportController@requisitionReport')->name('report.requisition');
 	Route::post('report/payment_report_by_date', 'ReportController@paymentReportByDate')->name('report.paymentByDate');
 	Route::post('report/warehouse_report', 'ReportController@warehouseReport')->name('report.warehouse');
 	Route::post('report/user_report', 'ReportController@userReport')->name('report.user');

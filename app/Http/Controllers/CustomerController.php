@@ -70,6 +70,7 @@ class CustomerController extends Controller
             ],
         ]);
         $lims_customer_data = $request->all();
+        
         $lims_customer_data['is_active'] = true;
         //creating user if given user access
         if(isset($lims_customer_data['user'])) {
@@ -114,7 +115,7 @@ class CustomerController extends Controller
                 $message = 'Customer created successfully. Please setup your <a href="setting/mail_setting">mail setting</a> to send mail.';
             }   
         }
-
+        
         Customer::create($lims_customer_data);
         if($lims_customer_data['pos'])
             return redirect('pos')->with('message', $message);

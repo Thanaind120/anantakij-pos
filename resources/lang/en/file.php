@@ -276,6 +276,7 @@ return [
 	'Add Supplier' => 'Add Supplier',
 	'Product Report' => 'Product Report',
 	'Sale Report' => 'Sale Report',
+	'Requisition Report' => 'Requisition Report', // add new field
 	'Purchase Report' => 'Purchase Report',
 	'Payment Report' => 'Payment Report',
 	'Warehouse Stock Chart' => 'Warehouse Stock Chart',
